@@ -1,0 +1,52 @@
+﻿<Window x:Class="Mee6LevelsParser.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Mee6LevelsParser"
+        mc:Ignorable="d"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        FontFamily="Sans-serif"
+        Title="Mee6 Levels Parser" Height="450" Width="800" MinHeight="450" MinWidth="800" Icon="cdn_discordapp_com-b50adff099924dd5e6b72d13f77eb9d7.ico">
+    <Grid Background="#23272a">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="55*"/>
+            <RowDefinition Height="374*"/>
+        </Grid.RowDefinitions>
+        <DockPanel Visibility="Visible" HorizontalAlignment="Stretch" Background="Black" VerticalAlignment="Top"
+                   Grid.Row="0" LastChildFill="False"
+                    >
+            <TextBlock Text="Enter discord server ID: " FontSize="20" FontWeight="Bold" VerticalAlignment="Center"
+                       Foreground="White" Margin="10" HorizontalAlignment="Left"/>
+            <Button x:Name="bt_test" Content="Test" Click="bt_test_Click" Visibility="Collapsed"></Button>
+            <TextBox x:Name="tb_serverid" Margin="10" HorizontalAlignment="Right"
+                     FontSize="20" FontWeight="Bold"
+                     materialDesign:BottomDashedLineAdorner.Brush="Black"
+                     materialDesign:TextFieldAssist.HasClearButton="True"
+                     materialDesign:TextFieldAssist.TextFieldCornerRadius="5"
+                     materialDesign:TextFieldAssist.CharacterCounterStyle="{x:Null}"
+                     materialDesign:TextFieldAssist.HasTrailingIcon="False"
+                     materialDesign:TextFieldAssist.UnderlineCornerRadius="10"
+                     materialDesign:TextFieldAssist.UnderlineBrush="Black"
+                     PreviewTextInput="CheckForNumbers"
+                     Foreground="Black"
+                     DataObject.Pasting="PreventPasting"
+                     MaxLength="18" MinWidth="290"
+                     VerticalAlignment="Stretch" Background="White"/>
+            <Button x:Name="bt_search" Content="Search" HorizontalAlignment="Right" VerticalAlignment="Stretch" Margin="10" Width="100"
+                    FontSize="20" FontWeight="ExtraBold" Click="bt_search_Click"
+                    materialDesign:ButtonAssist.CornerRadius="5"
+                    />
+            <TextBlock x:Name="tb_about" Text="About" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10"
+                       MouseLeftButtonUp="tb_about_MouseLeftButtonUp"
+                       FontSize="20" FontWeight="Bold" Foreground="White"/>
+        </DockPanel>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" CanContentScroll="True" Grid.Row="1"
+                      materialDesign:ScrollViewerAssist.IsAutoHideEnabled="True">
+            <StackPanel x:Name="SubPanel" Grid.Row="1">
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>
